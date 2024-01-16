@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content%}
+<form action="/expense/add">
+    <label for="amount">Amount:</label>
+    <input id="amount" type="number" required>
+    <label for="category">Category:</label>
+    <select id="category" required>
+        <option>rent </option>
+        <option>insurance </option>
+        <option>food </option>
+        <option>work </option>
+        <option>going out </option>
+        <option>hobbys </option>
+        <option>public transport </option>
+        <option>savings </option>
+    </select>
+    <label for="date">Date:</label>
+    <input id="date" type="date" required>
+    <input type="submit" value="Add Expense">
+</form>
+{%endblock%}
