@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de-ch">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pricey</title>
+    <meta name="description" content="Pricey">
+    <meta name="author" content="by Joshua Devadas">
+    {% block meta %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+
+    <header>
+        <menu id="menu">
+            <ul>
+                <li><a href="/" title="Start">Start</a></li>
+            </ul>
+        </menu>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="social inline-bar">
+            <div class="left">
+               <p>Designed for a programming study project</p>
+            </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

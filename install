@@ -1,0 +1,4 @@
+from sqlite3 import connect
+connection=connect("pricey.db")
+cursor=connection.cursor()
+cursor.execute("CREATE TABLE expense(id,category,amount,date)")
