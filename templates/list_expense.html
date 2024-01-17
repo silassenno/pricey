@@ -1,0 +1,32 @@
+{% if standalone %}
+    {% extends "base.html" %}
+{% endif %}
+
+{% block content %}
+
+    <h1>Expenses</h1>
+    <table>
+        <tr>
+            <th>Cost</th>
+            <th>Cat.</th>
+            <th>Date</th>
+            <th></th>
+        </tr>
+        {% for expense in expenses %}
+            {% if expense.date.strftime("%B") == selected_month %}
+                {% if expense.date.year ==selected_year %}
+                    <tr>
+                        <td><a href="/expense/edit/{{ expense.id }}">{{ expense.amount | round(2) }}</a></td>
+                        <td>{{ expense.category.emoji }} {{ expense.category.name }} </td>
+                        <td>{{ expense.date.strftime('%d.%m.%y') }}</td>
+                        <td><a href="/expense/delete/{{ expense.id }}">⌫
+                            Delete</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </table>
+    <a href="/expense/add">Add <u>E</u>xpense</a>
+
+{% endblock %}

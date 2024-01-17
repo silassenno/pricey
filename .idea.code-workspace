@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": ".idea",
+			"path": "../../../Desktop/Pricey/.idea"
+		},
+		{
+			"name": "static",
+			"path": "../../../Desktop/Pricey/static"
+		},
+		{
+			"name": "templates",
+			"path": "../../../Desktop/Pricey/templates"
+		},
+		{
+			"name": "pricey",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

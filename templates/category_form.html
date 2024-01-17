@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Add Category</h1>
+    <form action="{{ url_for('add_category' if not category else 'edit_category', category_id=category.id if category else None) }}"
+          method="POST">
+
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text" required autofocus
+               value="{{ category.name if category else '' }}">
+
+        <label for="emoji">Emoji:</label>
+        <input id="emoji" name="emoji" type="text" required
+               value="{{ category.emoji if category else '' }}">
+
+        <label for="goal">Monthly Maximum:</label>
+        <input id="goal" name="goal" type="number" required step=".01"
+               value="{{ category.goal |round(2) if category else '' }}">
+
+        <input type="submit" value="{{ 'Update Category' if category else 'Add Category' }}">
+    </form>
+{% endblock %}

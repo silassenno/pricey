@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <nav>
+        <a href="/" title="Start">Go Back (ESC)</a>
+    </nav>
+    <hr/>
+    <form action="{{ url_for('add_expense' if not expense else 'edit', expense_id=expense.id if expense else None) }}"
+          method="POST">
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required autofocus>
+            <option value="" disabled {% if not expense %}selected{% endif %}>Select a category</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}"
+                        {% if expense and expense.category.id == category.id %}selected{% endif %}>
+                    {{ category.name }} {{ category.emoji }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <label for="amount">Amount:</label>
+        <input id="amount" name="amount" type="number" required step=".01"
+               value="{{ expense.amount | round(2) if expense else '' }}">
+
+        <label for="date">Date:</label>
+        <input id="date" type="date" name="date" required
+               value="{{ expense.date.strftime('%Y-%m-%d') if expense else default_date }}">
+
+        <input type="submit" value="{{ 'Update Expense' if expense else 'Add Expense' }}">
+    </form>
+
+
+{% endblock %}
