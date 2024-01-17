@@ -12,3 +12,8 @@ Design Principles: The goal is to make it as easy and effortless for the user to
 For this project I will mainly be using Flask and add additional libraries if necessary.
 
 A potential feature might be a simple scanner, which allows to read and import from receits.
+
+
+
+Final thoughts:
+-
